@@ -1,0 +1,90 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jun 10 08:45:03 2025
+
+@author: simsa
+"""
+
+help_text = (
+    "Welcome to the CV SIM app\n\n"
+    
+    "NOTE: this program is still underdevelopment and parameter validation is still underway\n\n"
+    
+    "_____ __________________ _____\n"
+    "|        |                               |        |\n"
+    "|        |                               |        |\n"
+    "|        |                               |        |\n"
+    "|   A   |               B             |   C   |\n"
+    "|        |                               |        |\n"
+    "|        |                               |        |\n"
+    "|____ |_________________ |____ |\n"
+    "|        |                               |        |\n"
+    "|    D  |               E             |   F   |\n"
+    "|____ |_________________ |____ |\n"
+    
+    "\n\n"
+    "Layout details:\n"
+    "   A: Options Menu, controls basic program functions.\n"
+    "   B: Plot Window, includes the embedded MatPlotLib toolbar.\n"
+    "   C: Experiment Parameter Panel, controls simulation elements.\n"
+    "   D: Mechanism Save/Load Panel.\n"
+    "   E: Reaction Parameter Panel.\n"
+    "   F: unimplemented.\n\n"
+    
+    "Experiment parameters:\n"
+    "   C: concentration (mol/L)\n"
+    "   Ei: the starting potential (V)\n"
+    "   Ef: the switching potential (V)\n"
+    "   v: scan rate (V/s)\n"
+    "   A: electode surface area (cm^2)\n"
+    "   L and DM are simulation and should be ignored for most purposes\n"
+    "These control the basic functioning of the simulation, such as scan window and rate.\n\n"
+    
+    "Reaction parameters:\n"
+    "   E: reduction potential (V)\n"
+    "   alpha: symmetry of the electron transfer\n"
+    "   ko: heterogeneous rate constant (cm/s)\n"
+    "   n: number of electrons transffered\n"
+    "   D: diffusion coefficient (1/cm)\n"
+    "   kc: homogeneous rate constant for chemical step (1/s)\n"
+    "This panel is dynamic and will change as reactions are added or removed.\n\n"
+    
+    "_____________________________________________________________________________________________________________________\n\n"
+    "Instructions:\n\n"
+    
+    "Simple 1 electron transfer:\n"
+    "     In order to run a simple simulation, press the \"Simulate\" button. The simulated "
+    "CV will appear in the plot window and can be manipulated or saved using the "
+    "default MatPlotLib toolbar embedded at the bottom of the plot. "
+    "The simulation itself can be manipulated from the Experiment Parameter and Reaction Parameter panels, "
+    "press \"Simulate\" again after making changes. The Experiment Parameters can be reset to default by pressing \"Reset\"\n\n"
+    
+    "Changing the mechanism:\n"
+    "     To add or remove electron transfer reactions and chemical steps, press \"Reactions\" in the Options Menu,"
+    "a new window will open. Press \"+ET\" to add a new electron transfer reaction or \"+HR\" to add a chemical step,"
+    "or \"Clear\" to reset reactions. When \"+ET\" or \"+HR\" is pressed, a new series of interactive "
+    "elements will appear. Specific reactions can be removed with their respective \"-\" buttons. The species "
+    "involved in each reaction can be changed from the dropdown menus. For more complicated mechanisms, it's "
+    "best to draw out a reaction scheme to keep track of species.\n"
+    "     After you're finished modifying the mechanism, close the Reactions window. The Reaction Parameters Panel "
+    "will update to reflect the changes. Now you can update reaction and specific variables such as reduction "
+    "potential, diffusion coefficient, and rate constants. When you're finished, rerun the simulation to see the changes.\n\n"
+    
+    "Opening experimental data:\n"
+    "     The app contains functionailty to load an experimental data set into the plot window to be overlayed by the simulated "
+    "data. Unfortunately, automatic fitting is not currently implemented; however, overlaying data allows for easy manual "
+    "fitting of real world data.\n"
+    "     To open data, first you need to prepare an appropriately formatted data file. This needs to be a csv with potential "
+    "values (V) in the first column and current values (uA) in the second column. There should be no headers, no NaN values, and no other data columns. "
+    "It's best practice to subtract charging current from your data set in preparation for fitting.\n"
+    "     In the Options Menu, press \"Open\" then select your file. The next time you run the simulation, your file will appear "
+    "as a red trace overlaying the simulated trace.\n\n"
+    
+    "Saving Mechanisms:\n"
+    "     In the Mechanism Save/Load Panel, the app contains functionality to save mechanisms as custom save files or in 1 of "
+    "4 easy recall save slots. To save to a custom save file, press \"Save\" and choose a file name. This will create a .log save file "
+    "which encodes the reactions, reaction parameters, experiment parameters, and any loaded experimental data. To open a save file "
+    "click \"Load\" and select the save file then press \"Simulate\" to run the simulation. To save to an easy recall slot, simply press "
+    "the appropriately numbered button below the \"Save\" button. To load from an easy recall save slot, press the appropriately numbered "
+    "button below the \"Load\" button. These utilize save files stored in the save_directory created whereever the app .exe or root app is stored."
+    )
