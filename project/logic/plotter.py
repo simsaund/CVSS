@@ -71,10 +71,11 @@ def CV_PLOT(data_file):
     ax2 = ax1.twinx()
     
     print(data["C0"].keys())
+    scale = 1E6
     conc_max, conc_min = [], []
     for spec in rxns.conc_vis:
-        ax2.plot(Escale[:Efw1], data["C0"][spec][:Efw1], linewidth=0.6, color=rxns.conc_vis[spec])
-        ax2.plot(Escale[Eb:], data["C0"][spec][Eb:], linewidth=0.6, color=rxns.conc_vis[spec], linestyle='dashed')
+        ax2.plot(Escale[:Efw1], data["C0"][spec][:Efw1]*scale, linewidth=0.6, color=rxns.conc_vis[spec])
+        ax2.plot(Escale[Eb:], data["C0"][spec][Eb:]*scale, linewidth=0.6, color=rxns.conc_vis[spec], linestyle='dashed')
         conc_max.append(max(data["C0"][spec]))
         conc_min.append(min(data["C0"][spec]))
         
@@ -105,7 +106,12 @@ def CV_PLOT(data_file):
         ax1.axis([xmax, 1.1*xmin, -50, 100])
 
     if rxns.conc_vis:
-        ax2.set_ylim(min(conc_min) - (max(conc_max)*0.1), max(conc_max)*1.1)
+        ax2.set_ylim((min(conc_min) - (max(conc_max)*0.1) * scale), (max(conc_max)*1.1) * scale)
+        
+    ax1.set_xlabel("Potential (V)")
+    ax1.set_ylabel("Current (μA)")
+    ax2.set_ylabel("Concentration (mM)")
+    # ax1.set_title("Cyclic Voltammetry Simulation")
     
     # plt.show()
     
